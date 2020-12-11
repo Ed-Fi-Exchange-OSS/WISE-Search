@@ -1,0 +1,191 @@
+﻿@model WISEsearch.MVC.Models.Management.QueryVisualizerViewModel
+@{
+    ViewBag.Title = "Query Visualizer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <fieldset>
+            <div class="form-group">
+                <select data-bind="options: QueryConfigurations, optionsText: 'Name', value: SelectedQuery, optionsCaption: 'Load Query...', event: { change: onSelectedQueryChange }"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Index:</label>
+                <input class="form-control" data-bind="value: Index, event: {change: onTargetIndexChange}" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Query:</label>
+                <textarea class="form-control" rows="10" data-bind="value: Query, event: { change: onQueryChange }"></textarea>
+            </div>
+            <div class="form-group clearfix">
+                <div class="col-xs-6">
+                    <label class="control-label">Search Fields:</label>
+                    <div data-bind="foreach: QueryFields()">
+                        <div class="col-xs-4">
+                            <label class="control-label" data-bind="text: FieldName"></label>
+                            <input class="form-control" data-bind="value: Value" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <label class="control-label">Parameters:</label>
+                    <table>
+                        <tbody data-bind="foreach: QueryParameters">
+                            <tr>
+                                <td>
+                                    <label class="control-label" data-bind="text: Name"></label>
+                                </td>
+                                <td>
+                                    <input class="form-control" data-bind="value: Value" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" data-bind="click: search">Search</button>
+            </div>
+        </fieldset>
+    </div>
+    <div class="panel-body clearfix" data-bind="visible: DocumentCount() != null">
+        <h6>
+            <b data-bind="text: Results().length"> </b> records returned from
+            <b data-bind="text: DocumentCount"></b> total documents in 
+            <b data-bind="text: Time"></b> seconds.
+        </h6>
+        <!-- ko foreach: Results -->
+        <div class="col-xs-4">
+            <div class="panel list-item">
+                <table class="table table-hover list-item">
+                    <thead>
+                        <tr class="info">
+                            <th class="control-label"><b>Score</b></th>
+                            <th><b data-bind="text:Score"></b></th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: Fields">
+                        <tr>
+                            <td class="control-label" data-bind="text: FieldName"></td>
+                            <td data-bind="text: Value"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+    var model = @Html.Raw(Json.Encode(Model));
+
+        var viewModel = $.extend(ko.mapping.fromJS(model), {
+            SelectedQuery: ko.observable(),
+            Index: ko.observable(),
+            Query: ko.observable(),
+            DocumentCount: ko.observable(),
+            Message: ko.observable(),
+            Time: ko.observable(),
+            QueryFields: ko.observableArray(),
+            QueryParameters: ko.observableArray(),
+            Results: ko.observableArray(),
+
+            onSelectedQueryChange: function() {
+                var selectedQuery = viewModel.SelectedQuery();
+                if (selectedQuery) {
+                    viewModel.Query(selectedQuery.Query());
+                    viewModel.Index(selectedQuery.TargetIndex());
+                    viewModel.onTargetIndexChange();
+                    viewModel.onQueryChange();
+                }
+            },
+            onTargetIndexChange: function() {
+                var selectedQuery = viewModel.SelectedQuery();
+                if (selectedQuery && viewModel.Index()) {
+                    $.post('@Url.Action("IndexDetails")/'+ viewModel.Index())
+                        .success(function(data) {
+                            var response = ko.mapping.fromJS(data);
+                            viewModel.DocumentCount(response.DocumentCount());
+                            viewModel.Results(response.Results());
+                            viewModel.Time(response.Time());
+                        })
+                        .fail(function(request, type, message) {
+                            viewModel.Message(message);
+                        });
+
+                }
+            },
+            onQueryChange: function() {
+                var fields = getRegexMatches(viewModel.Query(), searchFieldRegex)
+                    .map(function(item) { return { FieldName: ko.observable(item), Value: ko.observable() }; });
+
+                $(fields)
+                    .each(function() {
+                        var field = this;
+                        $(viewModel.QueryFields())
+                            .filter(function() { return this.FieldName() == field.FieldName(); })
+                            .each(function() { field.Value(this.Value()); });
+                    });
+                viewModel.QueryFields(fields);
+
+                var paramters = getRegexMatches(viewModel.Query(), paramterRegex)
+                    .map(function(item) { return { Name: ko.observable(item), Value: ko.observable() }; });
+
+                $(paramters)
+                    .each(function() {
+                        var paramter = this;
+                        $(viewModel.QueryParameters())
+                            .filter(function() { return this.Name() == paramter.Name(); })
+                            .each(function() { paramter.Value(this.Value()); });
+                    });
+                viewModel.QueryParameters(paramters);
+            },
+
+            search: function() {
+                var request = {
+                    TopResults: 25,
+                    Explain: false,
+                    TargetIndex: viewModel.Index(),
+                    Query: viewModel.Query(),
+                    SearchFields: ko.mapping.toJS(viewModel.QueryFields()),
+                    SearchParameters: ko.mapping.toJS(viewModel.QueryParameters())
+                };
+
+                $.post('@Url.Action("Search")', request)
+                .success(function(data) {
+                        var response = ko.mapping.fromJS(data);
+                        viewModel.Results(response.Results());
+                        viewModel.Time(response.Time());
+                    })
+                .fail(function(request, type, message) {
+                    viewModel.Message(message);
+                });
+
+        }
+    });
+
+    ko.applyBindings(viewModel);
+
+    var searchFieldRegex = /(?:^|\s)searchField="(.*?)(?:"|$)/g;
+    var paramterRegex = /(?:^|\$){(.*?)(?:}|$)/g;
+
+    function getRegexMatches(string, regex, index) {
+        index || (index = 1); // default to the first capturing group
+        var matches = [];
+        var match;
+        while (match = regex.exec(string)) {
+            matches.push(match[index]);
+        }
+        return matches.filter(function(item, i) { return matches.indexOf(item) == i; });
+    }
+    </script>
+}
+
+
+

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>WISEsearch.Web.Api.Client</id>
+    <version>0.9</version>
+    <authors>JACKAJS</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Client libraries to connect to a WISEsearch server side API endpoints</description>
+    <dependencies>
+      <dependency id="DPI.Web.Api.Client" version="1.6" />
+      <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.2" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\WISEsearch.Web.Api.Client.dll" target="lib\net45\WISEsearch.Web.Api.Client.dll" />
+    <file src="bin\Release\WISEsearch.Web.Api.Domain.dll" target="lib\net45\WISEsearch.Web.Api.Domain.dll" />
+  </files>
+</package>

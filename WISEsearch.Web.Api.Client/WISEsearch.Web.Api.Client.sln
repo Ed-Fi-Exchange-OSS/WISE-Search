@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WISEsearch.Web.Api.Domain", "..\WISEsearch.Web.Api.Domain\WISEsearch.Web.Api.Domain.csproj", "{65B1E2E9-666A-41D7-894B-F74136B22B60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WISEsearch.Web.Api.Client", "WISEsearch.Web.Api.Client.csproj", "{12563A5D-90D3-42A7-A25A-3C7F47562630}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WISEsearch.Web.Api.Client.Integration.Tests", "..\WISEsearch.Web.Api.Client.Integration.Tests\WISEsearch.Web.Api.Client.Integration.Tests.csproj", "{29E88DEF-0C95-455C-8C03-C4924B1A297F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C478E040-52ED-440E-9F6E-AAD0055A3C08}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://wisconsindpi.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\WISEsearch.Web.Api.Domain\\WISEsearch.Web.Api.Domain.csproj
+		SccProjectName1 = ../WISEsearch.Web.Api.Domain
+		SccLocalPath1 = ..\\WISEsearch.Web.Api.Domain
+		SccProjectUniqueName2 = WISEsearch.Web.Api.Client.csproj
+		SccLocalPath2 = .
+		SccProjectUniqueName3 = ..\\WISEsearch.Web.Api.Client.Integration.Tests\\WISEsearch.Web.Api.Client.Integration.Tests.csproj
+		SccProjectTopLevelParentUniqueName3 = WISEsearch.Web.Api.Client.sln
+		SccProjectName3 = ../WISEsearch.Web.Api.Client.Integration.Tests
+		SccLocalPath3 = ..\\WISEsearch.Web.Api.Client.Integration.Tests
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12563A5D-90D3-42A7-A25A-3C7F47562630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12563A5D-90D3-42A7-A25A-3C7F47562630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12563A5D-90D3-42A7-A25A-3C7F47562630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12563A5D-90D3-42A7-A25A-3C7F47562630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29E88DEF-0C95-455C-8C03-C4924B1A297F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29E88DEF-0C95-455C-8C03-C4924B1A297F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29E88DEF-0C95-455C-8C03-C4924B1A297F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29E88DEF-0C95-455C-8C03-C4924B1A297F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{29E88DEF-0C95-455C-8C03-C4924B1A297F} = {C478E040-52ED-440E-9F6E-AAD0055A3C08}
+	EndGlobalSection
+EndGlobal

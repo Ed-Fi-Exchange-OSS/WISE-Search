@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<searchQueries>
+  <searchQuery name="WiseIdPersonSearch" targetIndex="WiseIdPersonSearch">
+    <booleanQuery operator="and">
+      <!-- Required match parts-->
+      <booleanQuery operator="or">
+        <booleanQuery operator="or">
+          <fieldQuery indexField="WiseId" searchField="WiseId" weight="${WiseIdExactMatchWeight}" matchType="exact"/>
+          <fieldQuery indexField="ReverseWiseIds" searchField="ReverseWiseIds" weight="${WiseIdExactMatchWeight}" matchType="exact"/>
+          <!-- fieldQuery indexField="WiseId" searchField="WiseId" weight="${WiseIdPartialMatchWeight}" tolerance="${WiseIdTolerance}" matchType="fuzzy" -->
+        </booleanQuery>
+        <fieldQuery indexField="LocalPersonIds" searchField="LocalPersonIds" weight="${LocalRowKeyExactMatchWeight}" matchType="exact"/>
+        <fieldQuery indexField="ReverseLocalPersonIds" searchField="ReverseLocalPersonIds" weight="${LocalRowKeyExactMatchWeight}" matchType="exact"/>
+        <fieldQuery indexField="EducatorNumber" searchField="EducatorNumber" weight="${EducatorNumberExactMatchWeight}" matchType="exact"/>
+
+        <booleanQuery operator="or" minimumFieldMatches="${MinimumFieldMatches}">
+          <booleanQuery operator="or">
+            <fieldQuery indexField="FirstNames" searchField="FirstName"  weight="${FirstNameWithSynonymsMatchWeight}" tolerance="${FirstNameTolerance}" matchType="fuzzy" prefixLength="2"/>
+            <fieldQuery indexField="PhoneticFirstNames" searchField="FirstName" weight="${FirstNamePhoneticWeight}" matchType="phonetic"/>
+          </booleanQuery>
+          <booleanQuery operator="or">
+            <fieldQuery indexField="LastNames" searchField="LastName" weight="${LastNameWithSynonymsMatchWeight}" tolerance="${LastNameTolerance}" matchType="fuzzy" prefixLength="2"/>
+            <fieldQuery indexField="PhoneticLastNames" searchField="LastName" weight="${LastNamePhoneticWeight}" matchType="phonetic"/>
+          </booleanQuery>
+          <booleanQuery operator="or">
+            <fieldQuery indexField="BirthDate" searchField="BirthDate" weight="${BirthDateExactMatchWeight}" matchType="exact"/>
+            <fieldQuery indexField="BirthDate" searchField="BirthDate" weight="${BirthDatePartialMatchWeight}" tolerance="${BirthDateTolerance}" matchType="fuzzy" prefixLength="2"/>
+            <fieldQuery indexField="ReverseBirthDate" searchField="ReverseBirthDate" weight="${BirthDateExactMatchWeight}" matchType="exact"/>
+            <fieldQuery indexField="ReverseBirthDate" searchField="ReverseBirthDate" weight="${BirthDatePartialMatchWeight}" tolerance="${BirthDateTolerance}" matchType="fuzzy" prefixLength="1"/>
+          </booleanQuery>
+        </booleanQuery>
+      </booleanQuery>
+
+      <!-- optional bonus scoring matches (matching only these will not be sufficent to be considered a match) -->
+      <booleanQuery operator="or">
+        <alwaysTrueQuery />
+        <booleanQuery operator="or">
+          <fieldQuery indexField="MiddleNames" searchField="MiddleName" weight="${MiddleNameWithSynonymsMatchWeight}" tolerance="${MiddleNameTolerance}" matchType="fuzzy" prefixLength="1"/>
+          <fieldQuery indexField="PhoneticMiddleNames" searchField="MiddleName" weight="${MiddleNamePhoneticWeight}" matchType="phonetic"/>
+        </booleanQuery>
+        <fieldQuery indexField="GenderCode" searchField="Gender" weight="${GenderExactMatchWeight}" matchType="exact"/>
+        <fieldQuery indexField="GenderId" searchField="GenderId" weight="${GenderExactMatchWeight}" matchType="exact"/>
+        <fieldQuery indexField="SuffixCode" searchField="Suffix" weight="${SuffixExactMatchWeight}" matchType="exact"/>
+      </booleanQuery>
+
+    </booleanQuery>
+  </searchQuery>
+
+  <searchQuery name="TestPersonSearch" targetIndex="TestPersonSearch">
+    <booleanQuery operator="and">
+      <!-- Required match parts-->
+      <booleanQuery operator="or">
+        <booleanQuery operator="or">
+          <fieldQuery indexField="WiseId" searchField="WiseId" weight=".7" matchType="exact"/>
+          <fieldQuery indexField="WiseId" searchField="WiseId" weight=".9" tolerance=".9" matchType="fuzzy"/>
+        </booleanQuery>
+        <booleanQuery operator="or">
+          <fieldQuery indexField="LocalPersonIds" searchField="LocalPersonId" weight=".7" matchType="exact"/>
+        </booleanQuery>
+
+        <booleanQuery operator="or" minimumFieldMatches="2">
+          <booleanQuery operator="or">
+            <fieldQuery indexField="FirstNames" searchField="FirstName"  weight=".7" tolerance=".8" matchType="fuzzy"/>
+            <fieldQuery indexField="PhoneticFirstNames" searchField="FirstName" weight=".7" matchType="phonetic"/>
+          </booleanQuery>
+          <booleanQuery operator="or">
+            <fieldQuery indexField="LastNames" searchField="LastName" weight=".7" tolerance=".8" matchType="fuzzy"/>
+            <fieldQuery indexField="PhoneticLastNames" searchField="LastName" weight=".7" matchType="phonetic"/>
+          </booleanQuery>
+          <booleanQuery operator="or">
+            <fieldQuery indexField="BirthDate" searchField="BirthDate" weight=".7" matchType="exact"/>
+            <fieldQuery indexField="BirthDate" searchField="BirthDate" weight=".3" tolerance=".7" matchType="fuzzy"/>
+          </booleanQuery>
+        </booleanQuery>
+      </booleanQuery>
+
+      <!-- optional bonus scoring matches (matching only these will not be sufficent to be considered a match) -->
+      <booleanQuery operator="or">
+        <alwaysTrueQuery />
+        <booleanQuery operator="or">
+          <fieldQuery indexField="MiddleNames" searchField="MiddleName" weight=".2" tolerance=".6" matchType="fuzzy"/>
+          <fieldQuery indexField="PhoneticMiddleNames" searchField="MiddleName" weight=".2" matchType="phonetic"/>
+        </booleanQuery>
+        <fieldQuery indexField="GenderCode" searchField="Gender" weight=".2" matchType="exact"/>
+        <fieldQuery indexField="SuffixCode" searchField="Suffix" weight=".05" matchType="exact"/>
+      </booleanQuery>
+
+    </booleanQuery>
+  </searchQuery>
+  
+  <searchQuery name="DataWarehousePersonSearch" targetIndex="DataWarehousePersonSearch">
+    <booleanQuery operator="and">
+      <!-- Required match parts-->
+      <booleanQuery operator="or">
+        <booleanQuery operator="or">
+          <fieldQuery indexField="WiseId" searchField="WiseId" weight=".7" matchType="exact" prefixLength="1" />
+          <fieldQuery indexField="WiseId" searchField="WiseId" weight=".9" tolerance=".9" matchType="fuzzy" prefixLength="1"/>
+          <fieldQuery indexField="ReverseWiseIds" searchField="ReverseWiseIds" weight=".9" matchType="exact" prefixLength="2"/>
+          <fieldQuery indexField="ReverseWiseIds" searchField="ReverseWiseIds" weight=".7" tolerance=".9" matchType="fuzzy" prefixLength="2"/>
+        </booleanQuery>
+        <booleanQuery operator="or">
+          <fieldQuery indexField="LocalPersonIds" searchField="LocalPersonId" weight=".7" matchType="exact"/>
+        </booleanQuery>
+
+        <booleanQuery operator="or" minimumFieldMatches="2">
+          <booleanQuery operator="or">
+            <fieldQuery indexField="FirstNames" searchField="FirstName"  weight=".7" tolerance=".8" matchType="fuzzy" prefixLength="1"/>
+            <fieldQuery indexField="PhoneticFirstNames" searchField="FirstName" weight=".7" matchType="phonetic"/>
+          </booleanQuery>
+          <booleanQuery operator="or">
+            <fieldQuery indexField="LastNames" searchField="LastName" weight=".7" tolerance=".8" matchType="fuzzy" prefixLength="1"/>
+            <fieldQuery indexField="PhoneticLastNames" searchField="LastName" weight=".7" matchType="phonetic"/>
+          </booleanQuery>
+          <booleanQuery operator="or">
+            <fieldQuery indexField="BirthDate" searchField="BirthDate" weight=".7" matchType="exact"/>
+            <fieldQuery indexField="BirthDate" searchField="BirthDate" weight=".3" tolerance=".7" matchType="fuzzy"/>
+            <fieldQuery indexField="ReverseBirthDate" searchField="ReverseBirthDate" weight=".7" matchType="exact"/>
+            <fieldQuery indexField="ReverseBirthDate" searchField="ReverseBirthDate" weight=".3" tolerance=".7" matchType="fuzzy" prefixLength="1"/>
+          </booleanQuery>
+        </booleanQuery>
+      </booleanQuery>
+
+      <!-- optional bonus scoring matches (matching only these will not be sufficent to be considered a match) -->
+      <booleanQuery operator="or">
+        <alwaysTrueQuery />
+        <booleanQuery operator="or">
+          <fieldQuery indexField="MiddleNames" searchField="MiddleName" weight=".2" tolerance=".6" matchType="fuzzy" prefixLength="1"/>
+          <fieldQuery indexField="PhoneticMiddleNames" searchField="MiddleName" weight=".2" matchType="phonetic"/>
+        </booleanQuery>
+        <fieldQuery indexField="GenderCode" searchField="Gender" weight=".2" matchType="exact"/>
+        <fieldQuery indexField="SuffixCode" searchField="Suffix" weight=".05" matchType="exact"/>
+      </booleanQuery>
+
+    </booleanQuery>
+  </searchQuery>
+  
+  <searchQuery name="TestSearch" targetIndex="TestSearch">
+    <booleanQuery operator="or">
+      <fieldQuery indexField="Id" searchField="Id"  weight="1" matchType="exact"/>
+      <booleanQuery operator="or">
+        <fieldQuery indexField="FirstNames" searchField="FirstName"  weight=".6" tolerance=".7" matchType="fuzzy"/>
+        <fieldQuery indexField="PhoneticFirstNames" searchField="FirstName" weight=".5" matchType="phonetic"/>
+      </booleanQuery>
+      <booleanQuery operator="or">
+        <fieldQuery indexField="LastNames" searchField="LastName" weight="1" tolerance=".8" matchType="fuzzy"/>
+        <fieldQuery indexField="PhoneticLastNames" searchField="LastName" weight=".9" matchType="phonetic"/>
+      </booleanQuery>
+    </booleanQuery>
+  </searchQuery>
+</searchQueries>

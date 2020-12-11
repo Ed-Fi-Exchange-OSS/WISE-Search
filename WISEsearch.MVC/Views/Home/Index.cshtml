@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Indexing API Endpoints</h4>
+<ul>
+    <li><a href="@Url.Content("~/api/searchindex/search")">Search (POST)</a></li>
+    <li><a href="@Url.Content("~/api/searchindex/batchsearch")">Batch Search (POST)</a></li>
+    <li><a href="@Url.Content("~/api/searchindex/put")">Add/Update (PUT)</a></li>
+    <li><a href="@Url.Content("~/api/searchindex/delete")">Delete (DELETE)</a></li>
+    <li><a href="@Url.Content("~/api/searchindex/optimize")">Optimize (GET/POST)</a></li>
+    <li><a href="@Url.Content("~/api/searchindex/clear")">Clear (DELETE)</a></li>
+</ul>
+
+<h3>WISESearch API Release notes</h3>
+
+<div class="panel panel-info">
+    <div class="panel-heading">Version 1.1</div>
+    <div class="panel-body">
+        <ul>
+            <li>Added this home page</li>
+            <li>Added  @Html.ActionLink("Query Visualizer", "Explorer", "Management")  </li>
+        </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Version 1.0</div>
+    <div class="panel-body">
+        <ul>
+            <li>Inital implementation</li>
+        </ul>
+    </div>
+</div>
+

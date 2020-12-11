@@ -1,0 +1,165 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WISEsearch.MVC", "WISEsearch.MVC\WISEsearch.MVC.csproj", "{0F2DAB30-A1ED-4D46-BA77-ED5314266394}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WISEsearch.MVC.Tests", "WISEsearch.MVC.Tests\WISEsearch.MVC.Tests.csproj", "{8CD62B0A-96A9-4B13-8169-EEA256681AAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WISEsearch.Business", "WISEsearch.Business\WISEsearch.Business.csproj", "{2AFD0503-7594-4A9C-A4EB-06F4CB1672D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WISEsearch.Domain", "WISEsearch.Domain\WISEsearch.Domain.csproj", "{EC8E86B1-7662-43F8-B9C1-210FC662D730}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WISEsearch.Web.Api", "WISEsearch.Web.Api\WISEsearch.Web.Api.csproj", "{D5D3F695-D0A6-4CCA-9C54-6F9A08D27E82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WISEsearch.Ninject", "WISEsearch.Ninject\WISEsearch.Ninject.csproj", "{31768521-8CD9-4084-9EE9-B40FB68B9004}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7F3A0B92-484C-42A1-B07A-31BF9BFB1A5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WISEsearch.Web.Api.Domain", "WISEsearch.Web.Api.Domain\WISEsearch.Web.Api.Domain.csproj", "{65B1E2E9-666A-41D7-894B-F74136B22B60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{3668021E-3A29-4B98-8209-57EE125FC18C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{555FA26B-31B7-411A-895C-82A27BF9338F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDFI.Modules.Search", "EDFI.Modules.Search\EDFI.Modules.Search.csproj", "{7347868F-DE40-418B-BF64-53C959FBAC6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5836345C-DF4A-4BE6-A45D-BF141975B4F9}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		QA|Any CPU = QA|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F2DAB30-A1ED-4D46-BA77-ED5314266394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F2DAB30-A1ED-4D46-BA77-ED5314266394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F2DAB30-A1ED-4D46-BA77-ED5314266394}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{0F2DAB30-A1ED-4D46-BA77-ED5314266394}.QA|Any CPU.Build.0 = QA|Any CPU
+		{0F2DAB30-A1ED-4D46-BA77-ED5314266394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F2DAB30-A1ED-4D46-BA77-ED5314266394}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F2DAB30-A1ED-4D46-BA77-ED5314266394}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{0F2DAB30-A1ED-4D46-BA77-ED5314266394}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{8CD62B0A-96A9-4B13-8169-EEA256681AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD62B0A-96A9-4B13-8169-EEA256681AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD62B0A-96A9-4B13-8169-EEA256681AAF}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{8CD62B0A-96A9-4B13-8169-EEA256681AAF}.QA|Any CPU.Build.0 = QA|Any CPU
+		{8CD62B0A-96A9-4B13-8169-EEA256681AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD62B0A-96A9-4B13-8169-EEA256681AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD62B0A-96A9-4B13-8169-EEA256681AAF}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{8CD62B0A-96A9-4B13-8169-EEA256681AAF}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{2AFD0503-7594-4A9C-A4EB-06F4CB1672D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AFD0503-7594-4A9C-A4EB-06F4CB1672D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AFD0503-7594-4A9C-A4EB-06F4CB1672D1}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{2AFD0503-7594-4A9C-A4EB-06F4CB1672D1}.QA|Any CPU.Build.0 = QA|Any CPU
+		{2AFD0503-7594-4A9C-A4EB-06F4CB1672D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AFD0503-7594-4A9C-A4EB-06F4CB1672D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AFD0503-7594-4A9C-A4EB-06F4CB1672D1}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{2AFD0503-7594-4A9C-A4EB-06F4CB1672D1}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{EC8E86B1-7662-43F8-B9C1-210FC662D730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC8E86B1-7662-43F8-B9C1-210FC662D730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC8E86B1-7662-43F8-B9C1-210FC662D730}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{EC8E86B1-7662-43F8-B9C1-210FC662D730}.QA|Any CPU.Build.0 = QA|Any CPU
+		{EC8E86B1-7662-43F8-B9C1-210FC662D730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC8E86B1-7662-43F8-B9C1-210FC662D730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC8E86B1-7662-43F8-B9C1-210FC662D730}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{EC8E86B1-7662-43F8-B9C1-210FC662D730}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{D5D3F695-D0A6-4CCA-9C54-6F9A08D27E82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5D3F695-D0A6-4CCA-9C54-6F9A08D27E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5D3F695-D0A6-4CCA-9C54-6F9A08D27E82}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{D5D3F695-D0A6-4CCA-9C54-6F9A08D27E82}.QA|Any CPU.Build.0 = QA|Any CPU
+		{D5D3F695-D0A6-4CCA-9C54-6F9A08D27E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5D3F695-D0A6-4CCA-9C54-6F9A08D27E82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5D3F695-D0A6-4CCA-9C54-6F9A08D27E82}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{D5D3F695-D0A6-4CCA-9C54-6F9A08D27E82}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{31768521-8CD9-4084-9EE9-B40FB68B9004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31768521-8CD9-4084-9EE9-B40FB68B9004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31768521-8CD9-4084-9EE9-B40FB68B9004}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{31768521-8CD9-4084-9EE9-B40FB68B9004}.QA|Any CPU.Build.0 = QA|Any CPU
+		{31768521-8CD9-4084-9EE9-B40FB68B9004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31768521-8CD9-4084-9EE9-B40FB68B9004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31768521-8CD9-4084-9EE9-B40FB68B9004}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{31768521-8CD9-4084-9EE9-B40FB68B9004}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.QA|Any CPU.Build.0 = QA|Any CPU
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{65B1E2E9-666A-41D7-894B-F74136B22B60}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{7347868F-DE40-418B-BF64-53C959FBAC6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7347868F-DE40-418B-BF64-53C959FBAC6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7347868F-DE40-418B-BF64-53C959FBAC6C}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{7347868F-DE40-418B-BF64-53C959FBAC6C}.QA|Any CPU.Build.0 = QA|Any CPU
+		{7347868F-DE40-418B-BF64-53C959FBAC6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7347868F-DE40-418B-BF64-53C959FBAC6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7347868F-DE40-418B-BF64-53C959FBAC6C}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{7347868F-DE40-418B-BF64-53C959FBAC6C}.Staging|Any CPU.Build.0 = Staging|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8CD62B0A-96A9-4B13-8169-EEA256681AAF} = {7F3A0B92-484C-42A1-B07A-31BF9BFB1A5B}
+		{D5D3F695-D0A6-4CCA-9C54-6F9A08D27E82} = {3668021E-3A29-4B98-8209-57EE125FC18C}
+		{31768521-8CD9-4084-9EE9-B40FB68B9004} = {555FA26B-31B7-411A-895C-82A27BF9338F}
+		{65B1E2E9-666A-41D7-894B-F74136B22B60} = {3668021E-3A29-4B98-8209-57EE125FC18C}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://wisconsindpi.visualstudio.com/defaultcollection
+		SccProjectUniqueName0 = WISEsearch.MVC\\WISEsearch.MVC.csproj
+		SccProjectName0 = WISEsearch.MVC
+		SccAuxPath0 = https://wisconsindpi.visualstudio.com/defaultcollection
+		SccLocalPath0 = WISEsearch.MVC
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = WISEsearch.Business\\WISEsearch.Business.csproj
+		SccProjectName1 = WISEsearch.Business
+		SccAuxPath1 = https://wisconsindpi.visualstudio.com/defaultcollection
+		SccLocalPath1 = WISEsearch.Business
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = WISEsearch.Domain\\WISEsearch.Domain.csproj
+		SccProjectName2 = WISEsearch.Domain
+		SccAuxPath2 = https://wisconsindpi.visualstudio.com/defaultcollection
+		SccLocalPath2 = WISEsearch.Domain
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName3 = WISEsearch.MVC.Tests\\WISEsearch.MVC.Tests.csproj
+		SccProjectTopLevelParentUniqueName3 = WISEsearch.MVC.sln
+		SccProjectName3 = WISEsearch.MVC.Tests
+		SccAuxPath3 = https://wisconsindpi.visualstudio.com/defaultcollection
+		SccLocalPath3 = WISEsearch.MVC.Tests
+		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName4 = WISEsearch.Web.Api.Domain\\WISEsearch.Web.Api.Domain.csproj
+		SccProjectTopLevelParentUniqueName4 = WISEsearch.MVC.sln
+		SccProjectName4 = WISEsearch.Web.Api.Domain
+		SccAuxPath4 = https://wisconsindpi.visualstudio.com/defaultcollection
+		SccLocalPath4 = WISEsearch.Web.Api.Domain
+		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName5 = WISEsearch.Web.Api\\WISEsearch.Web.Api.csproj
+		SccProjectTopLevelParentUniqueName5 = WISEsearch.MVC.sln
+		SccProjectName5 = WISEsearch.Web.Api
+		SccAuxPath5 = https://wisconsindpi.visualstudio.com/defaultcollection
+		SccLocalPath5 = WISEsearch.Web.Api
+		SccProvider5 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName6 = WISEsearch.Ninject\\WISEsearch.Ninject.csproj
+		SccProjectTopLevelParentUniqueName6 = WISEsearch.MVC.sln
+		SccProjectName6 = WISEsearch.Ninject
+		SccAuxPath6 = https://wisconsindpi.visualstudio.com/defaultcollection
+		SccLocalPath6 = WISEsearch.Ninject
+		SccProvider6 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName7 = EDFI.Modules.Search\\EDFI.Modules.Search.csproj
+		SccProjectName7 = EDFI.Modules.Search
+		SccAuxPath7 = https://wisconsindpi.visualstudio.com/defaultcollection
+		SccLocalPath7 = EDFI.Modules.Search
+		SccProvider7 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal
